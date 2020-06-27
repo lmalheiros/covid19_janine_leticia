@@ -31,6 +31,8 @@
               margin-right: 8px;
               opacity: 0.7;
           }
+           
+            
         </style>
 
     </head>
@@ -54,11 +56,11 @@
          }).addTo(map);
 
         function getColor(value) {
-            return value > 10 ? '#54278f':
-                   value > 3  ? '#756bb1':
-                   value > 2  ? '#9e9ac8':
-                   value > 1  ? '#cbc9e2':
-                                 '#f2f0f7';
+            return value > 10 ? '#195e83':
+                   value > 3  ? '#1979a9':
+                   value > 2  ? '#44bcd8':
+                   value > 1  ? '#69bdd2':
+                                 '#cce7e8';
         }
 
         function style(feature){
@@ -110,7 +112,7 @@
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
             return layer.feature.properties.Concelho 
-                   + '<p style="color:yellow">' + layer.feature.properties.Casos_23_1.toString() + ' casos por 10.000hab. </p>';       
+                   + '<p style="color:bçack">' + layer.feature.properties.Casos_23_1.toString() + ' casos por 10.000hab. </p>';       
         }).addTo(map);
 
          var legend = L.control({position: 'bottomright'}); // Try the other three corners if you like.
