@@ -49,7 +49,7 @@
 
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
-           maxZoom: 11,
+           maxZoom: 110,
            minZoom: 5,
            id: 'mapbox.light',
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
@@ -81,8 +81,8 @@
             // Adjust the values below to change the highlighting styles of features on mouseover
             // Check out https://leafletjs.com/reference-1.3.4.html#path for more options for changing style
             feature.setStyle({
-                weight: 5,
-                color: '#777',
+                weight: 4,
+                color: '#999',
                 fillOpacity: 0.7
             });
 
@@ -112,7 +112,7 @@
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
             return layer.feature.properties.Concelho 
-                   + '<p style="color:bçack">' + layer.feature.properties.Casos_23_1.toString() + ' casos por 10.000hab. </p>';       
+                   + '<p style="color:black">' + layer.feature.properties.Casos_23_1.toString() + ' casos por 10.000hab. </p>';       
         }).addTo(map);
 
          var legend = L.control({position: 'bottomright'}); // Try the other three corners if you like.
@@ -128,7 +128,7 @@
               // If you are creating a similar choropleth map, you do not need to change lines below.
               for (var i = 0; i < grades.length; i++) {
                   div.innerHTML +=
-                  '<i style="background:' + getColor(grades[i] + 1) + '"></i>' +
+                  '<i style="background:' + getColor((grades[i]/13) + 1) + '"></i>' +
                   grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
               }
 
