@@ -95,14 +95,7 @@
                 color: '#999',
                 fillOpacity: 0.99
             });
-            
-            function onMapClick(e) {
-                    popup
-                        .setLatLng(e.latlng)
-                        .setContent("You clicked the map at " + e.latlng.toString())
-                        .openOn(map);
-                }
-            
+                        
             // Bring the highlighted feature to front so that the border doesn’t clash with nearby states
             // But not for IE, Opera or Edge, since they have problems doing bringToFront on mouseover
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -153,7 +146,13 @@
 
           legend.addTo(map);
             
-          var popup = L.popup();                
+          var popup = L.popup();   
+            function onMapClick(e) {
+                    popup
+                        .setLatLng(e.latlng)
+                        .setContent("You clicked the map at " + e.latlng.toString())
+                        .openOn(map);
+                }
           map.on('click', onMapClick);
           popup.addTo(map);
             
