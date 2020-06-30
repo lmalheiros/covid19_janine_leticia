@@ -167,6 +167,15 @@
 
           legend.addTo(map);
             
+          var info = L.control({position: 'topright'});
+            info.onAdd = function (map) {
+
+              div.innerHTML = '<b>A HISTORIAE<br>DO COVID19<br>EM PORTUGAL<br></b>'; 
+                
+              return div;
+          };
+
+            
         </script>
         
         <div id="map2" style="height: 100%"></div>  
