@@ -109,16 +109,23 @@
             geojson.resetStyle(e.target);
         }
             
+        var popup = L.popup();   
+        function onMapClick(map) {
+            popup
+             .setContent("Clicaste em " + layer.feature.properties.Concelho.toString())
+             .openOn(map);
+        }       
+
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature, // Do what defined by the highlightFeature function on mouseover
                 mouseout: resetHighlight,    // Do what defined by the resetHighlight function on mouseout
             });
-            feature.on('click', function(ev) {
-                alert(ev.latlng); // ev is an event object (MouseEvent in this case)
+            feature.on('click', onMapClick(map) {
+                alert(layer.feature.properties.Concelho.toString()); // ev is an event object (MouseEvent in this case)
             });
-        }
-           
+        }            
+         
         geojson = L.geoJson(data, {
             style:style,
             onEachFeature: onEachFeature
