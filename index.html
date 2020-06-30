@@ -36,18 +36,18 @@
     </head>
 
     <body>
-        <div id="map" style="height: 700px"></div>  
+        <div id="map" style="height: 650px"></div>  
 
         <script type="text/javascript">
 
           var map = L.map('map', {
               center: [38.761113, -9.160908],
-              zoom: 4 /*era 5*/
+              zoom: 10 /*era 5*/
           });
 
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
-           maxZoom: 11, /* era 11 */
+           maxZoom: 20, /* era 11 */
            minZoom: 4, /* eraa 5 */
            id: 'mapbox.dark',  // era light
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
@@ -71,10 +71,10 @@
         }
         function style(feature){
             return {
-                fillColor: getColor(feature.properties.Confirmado),   // pop_den is the field name for the population density data
+                fillColor: getColorMapa(feature.properties.Confirmado),   // pop_den is the field name for the population density data
                 weight: 1, /*era 2*/
                 opacity: 1,
-                color: 'gray',
+                color: 'darkgray',
                 fillOpacity: 0.6  /* era 0.9 */
             }; 
         }
@@ -104,7 +104,6 @@
         function resetHighlight(e) {
             geojson.resetStyle(e.target);
         }
-
             
         function onEachFeature(feature, layer) {
             layer.on({
