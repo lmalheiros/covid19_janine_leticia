@@ -36,7 +36,7 @@
     </head>
 
     <body>
-        <div id="map" style="height: 600px"></div>  /* era 500 */
+        <div id="map" style="height: 700px"></div>  
 
         <script type="text/javascript">
 
@@ -62,11 +62,12 @@
         }
 
         function getColorMapa(value) {
-            return value > 139 ? '#191970':
-                   value > 87  ? '#483D8B':
-                   value > 53 ? '#9e9ac8':
-                   value > 32  ? '#836FFF':
-                                 '#4682B4';   
+            return value > 1000 ? '#191970':
+                   value > 500  ? '#483D8B':
+                   value > 250 ? '#9e9ac8':
+                   value > 75  ? '#836FFF':
+                   value > 15 ? '#4682B4'
+                                '#B0C4DE';   
         }
         function style(feature){
             return {
@@ -74,7 +75,7 @@
                 weight: 2,
                 opacity: 1,
                 color: 'gray',
-                fillOpacity: 0.4  /* era 0.9 */
+                fillOpacity: 0.6  /* era 0.9 */
             }; 
         }
             
@@ -117,17 +118,17 @@
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
             return layer.feature.properties.Concelho 
-                   + '<p style="color:blue">' + layer.feature.properties.Confirmado.toString() + ' casos por 10.000 hab. </p>';       
+                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos por 10.000 hab. </p>';       
         }).addTo(map);
 
-         var legendConf = L.control({position: 'bottomright'}); // Try the other three corners if you like.
+         var legend = L.control({position: 'bottomright'}); // Try the other three corners if you like.
 
-          legendConf.onAdd = function (map) {
+          legend.onAdd = function (map) {
 
-              var div = L.DomUtil.create('div', 'legendConf'),
-                  grades = [0, 32, 53, 87, 139]; // The break values to define the intervals of population, note we begin from 0 here
+              var div = L.DomUtil.create('div', 'legend'),
+                  grades = [0, 15, 75, 250, 500, 1000]; // The break values to define the intervals of population, note we begin from 0 here
 
-              div.innerHTML = '<b>CASOS CONFIRMADOS<br></b>'; // The legend title, in this case it's Population Density 2011
+              div.innerHTML = '<b>CASOS CONFIRMADOS<br></b>'; 
 
               // Loop through our the classes and generate a label with a colored square for each interval.
               // If you are creating a similar choropleth map, you do not need to change lines below.
@@ -140,7 +141,7 @@
               return div;
           };
 
-          legendConf.addTo(map);
+          legend.addTo(map);
 
         </script>
    </body>
