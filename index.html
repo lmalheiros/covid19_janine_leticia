@@ -8,7 +8,7 @@
         crossorigin=""/>
 
         // Setando pra usar recursos de geoJson
-        <link rel="stylesheet" href="http://geojson.tools/"
+        <link rel="stylesheet" href="https://geojson.tools/"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin=""/>
 
@@ -48,12 +48,12 @@
 
           var map = L.map('map', {
               center: [38.761113, -9.160908],
-              zoom: 50 // era 5
+              zoom: 10 // era 5
           });
 
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
-           maxZoom: 110, // era 11
+           maxZoom: 11, // era 11
            minZoom: 4, // eraa 5
            id: 'mapbox.dark',  // era light
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
