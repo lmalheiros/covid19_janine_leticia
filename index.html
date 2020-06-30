@@ -121,9 +121,7 @@
                 mouseover: highlightFeature, // Do what defined by the highlightFeature function on mouseover
                 mouseout: resetHighlight,    // Do what defined by the resetHighlight function on mouseout
             });
-            feature.on('click', onMapClick(map) {
-                alert(layer.feature.properties.Concelho.toString()); // ev is an event object (MouseEvent in this case)
-            });
+            feature.on('click', onMapClick(map));
         }            
          
         geojson = L.geoJson(data, {
