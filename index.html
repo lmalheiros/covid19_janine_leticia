@@ -150,7 +150,7 @@
             function onMapClick(e) {
                     popup
                         .setLatLng(e.latlng)
-                        .setContent("Clicaste em " + feature.properties.Concelho)
+                        .setContent("Clicaste em " + layer.feature.properties.Concelho.toString())
                         .openOn(map);
                 }
           map.on('click', onMapClick);
