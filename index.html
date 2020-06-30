@@ -109,19 +109,11 @@
             geojson.resetStyle(e.target);
         }
             
-        var popup = L.popup();   
-        function onMapClick(map) {
-            popup
-             .setContent("Clicaste em " + layer.feature.properties.Concelho.toString())
-             .openOn(map);
-        }       
-
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature, // Do what defined by the highlightFeature function on mouseover
                 mouseout: resetHighlight,    // Do what defined by the resetHighlight function on mouseout
             });
-            feature.on('click', onMapClick(map));
         }            
          
         geojson = L.geoJson(data, {
