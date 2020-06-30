@@ -145,7 +145,6 @@
               var popup = L.popup();   
                     function onMapClick(map) {
                             popup
-                                .setLatLng(map.latlng)
                                 .setContent("Clicaste em " + layer.feature.properties.Concelho.toString())
                                 .openOn(map);
                         }
@@ -155,7 +154,7 @@
           legend.addTo(map);
             
           
-          //popup.addTo(map);
+          popup.addTo(map);
             
         </script>
    </body>
