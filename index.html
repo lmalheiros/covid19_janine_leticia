@@ -37,7 +37,7 @@
              <table style="text-align: center; width: 100%;" border="0" cellpadding="0" cellspacing="0"> 
                 <tbody>
                     <tr>
-                       <td style="vertical-align: center; horizontal-align: left; width: 100px;"><img style="width: 250px; height: 68px;" src="igot.png"></td>
+                       <td style="vertical-align: center; horizontal-align: left; width: 140px;"><img style="width: 250px; height: 68px;" src="igot.png"></td>
                        <td style="vertical-align: center; font-family: Times New Roman; width: 493px;">
                            <h2>BLOG WEB SIG DO COVID-19 EM PORTUGAL</h2></td>
                        <td style="vertical-align: center; horizontal-align: right; width: 100px;"><img style="width: 250px; height: 68px;" src="nomes.png"></td>
@@ -53,7 +53,7 @@
                         
           var map = L.map('map', {
               center: [39.9, -5.160908],  
-              zoom: 5
+              zoom: 7
           });  
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -156,13 +156,12 @@
             
         </script>
         
-        <div id="map" style="height: 100%"></div>  
+        <div id="map2" style="height: 100%"></div>  
         <script type="text/javascript">
                         
-          var map = L.map('map', {
+          var map2 = L.map('map2', {
               center: [39.9, -5.160908],  
-              zoom: 5,
-              height: 100%
+              zoom: 5, zoomAnimation
           });  
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -171,7 +170,7 @@
            minZoom: 4, /* eraa 5 */
            id: 'mapbox.dark',  // era light
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
-         }).addTo(map);
+         }).addTo(map2);
 
         function getColor(value) {
             return value > 139 ? '#042f66':
@@ -241,7 +240,7 @@
         }).bindTooltip(function (layer){
             return layer.feature.properties.Concelho 
                    + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
-        }).addTo(map);
+        }).addTo(map2);
 
          var legend = L.control({position: 'bottomleft'}); // Try the other three corners if you like.
 
