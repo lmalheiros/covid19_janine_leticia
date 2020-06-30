@@ -161,7 +161,7 @@
                         
           var map2 = L.map('map2', {
               center: [39.9, -5.160908],  
-              zoom: 5, zoomAnimation
+              zoom: 5
           });  
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -171,14 +171,6 @@
            id: 'mapbox.dark',  // era light
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
          }).addTo(map2);
-
-        function getColor(value) {
-            return value > 139 ? '#042f66':
-                   value > 87  ? '#195e83':
-                   value > 53 ? '#4169E1':
-                   value > 32  ? '#1979a9':
-                                 '#44bcd8';   
-        }
 
         function getColorMapa(value) {
             return value > 1000 ? '#191970':
@@ -197,10 +189,8 @@
                 color: 'darkgray',
                 fillOpacity: 0.9  /* era 0.9 */
             }; 
-        }
-            
-            
-            
+        }            
+                       
         function highlightFeature(e) {
             // Get access to the feature that was hovered through e.target
             var feature = e.target;
@@ -262,7 +252,7 @@
               return div;
           };
 
-          legend.addTo(map);
+          legend.addTo(map2);
             
         </script>
    </body>
