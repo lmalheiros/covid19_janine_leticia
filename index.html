@@ -20,7 +20,7 @@
               line-height: 18px;
               background: rgba(255,255,255,0.9);
               box-shadow: 0 0 15px rgba(0,0,0,0.2);
-              border-radius: 4px;  /*era 5*/
+              border-radius: 5px;  /*era 5*/
           }
 
            /* Optional: adjust the values below to change the appearance of the legend color boxes */
@@ -29,7 +29,7 @@
               height: 18px;
               float: left;
               margin-right: 8px;
-              opacity: 0.7;
+              opacity: 0.8;
           }
             
         </style>
@@ -37,11 +37,11 @@
              <table style="text-align: center; width: 100%;" border="0" cellpadding="2" cellspacing="2">  
                 <tbody>
                     <tr>
-                       <td style="vertical-align: center; width: 100px;"><img style="width: 250px; height: 68px;" alt="IGOT" src="igot.png"></td>
+                       <td style="vertical-align: center; horizontal-align: left; width: 100px;"><img style="width: 250px; height: 68px;" alt="IGOT" src="igot.png"></td>
                        <td style="vertical-align: center; font-family: Times New Roman; width: 493px;">
                            <h2>WEB SIG - CASOS DO COVID-19 EM PORTUGAL<br>
                            </h2>
-                       <td style="vertical-align: center; font-family: Times New Roman; width: 36px;">
+                       <td style="vertical-align: center; horizontal-align: right; font-family: Times New Roman; width: 18px;">
                            <h2>Janine Faria<br>Leticia Malheiros<br>
                            </h2>
                        </td>
@@ -58,7 +58,7 @@
                         
           var map = L.map('map', {
               center: [39.9, -5.160908],  /*era 9 no lugar do 5 e 38 no lugar do 39*/
-              zoom: 7 /*era 5*/
+              zoom: 6 /*era 5*/
           });  
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -89,7 +89,7 @@
         function style(feature){
             return {
                 fillColor: getColorMapa(feature.properties.Confirmado),   // pop_den is the field name for the population density data
-                weight: 0.8, /*era 2*/
+                weight: 1, /*era 2*/
                 opacity: 1,
                 color: 'darkgray',
                 fillOpacity: 0.9  /* era 0.9 */
@@ -108,7 +108,7 @@
             feature.setStyle({
                 weight: 0.8,
                 color: '#999',
-                fillOpacity: 0.7
+                fillOpacity: 0.9
             });
 
             // Bring the highlighted feature to front so that the border doesn’t clash with nearby states
