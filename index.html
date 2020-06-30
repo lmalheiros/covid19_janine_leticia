@@ -47,7 +47,7 @@
     </head>
     <body>
         
-        <div id="map" style="height: 560px", "weight: 80px"></div> 
+        <div id="map" style="height: 560px", "width: 80px"></div> 
 
         <script type="text/javascript">
                         
@@ -145,6 +145,15 @@
           };
 
           legend.addTo(map);
+            
+          var popup = L.popup();
+                function onMapClick(e) {
+                    popup
+                        .setLatLng(e.latlng)
+                        .setContent("You clicked the map at " + e.latlng.toString())
+                        .openOn(map);
+                }
+                map.on('click', onMapClick);
             
         </script>
    </body>
