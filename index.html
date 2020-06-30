@@ -87,11 +87,11 @@
 
         function getColorMapa(value) {
             return value > 1000 ? '#191970':
-                   value > 500  ? '#0000CD':
-                   value > 250 ? '#483D8B':
-                   value > 75  ? '#6959CD':
-                   value > 15 ? '#836FFF':
-                                '#B0C4DE';   
+                   value > 500  ? '#483D8B':
+                   value > 250 ? '#6959CD':
+                   value > 75  ? '#836FFF':
+                   value > 15 ? '#B0C4DE':
+                                '#E6E6FA';   
         }
             
         function style(feature){
@@ -174,7 +174,8 @@
                 
               return div;
           };
-
+            
+           info.addTo(map);
             
         </script>
         
