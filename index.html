@@ -32,8 +32,7 @@
               opacity: 0.8;
           }
                                  
-        </style>
-                    
+        </style>                    
              <table style="text-align: center; width: 100%;" border="0" cellpadding="0" cellspacing="0"> 
                 <tbody>
                     <tr>
@@ -121,7 +120,7 @@
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
             return layer.feature.properties.Concelho 
-                   + '<p style="color:red">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
+                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
         }).addTo(map);
 
          var legend = L.control({position: 'bottomleft'}); // Try the other three corners if you like.
@@ -142,19 +141,21 @@
               }
               
               return div;
+              
+              var popup = L.popup();   
+                    function onMapClick(map) {
+                            popup
+                                .setLatLng(map.latlng)
+                                .setContent("Clicaste em " + layer.feature.properties.Concelho.toString())
+                                .openOn(map);
+                        }
+                  map.on('click', onMapClick);
           };
 
           legend.addTo(map);
             
-          var popup = L.popup();   
-            function onMapClick(e) {
-                    popup
-                        .setLatLng(e.latlng)
-                        .setContent("Clicaste em " + layer.feature.properties.Concelho.toString())
-                        .openOn(map);
-                }
-          map.on('click', onMapClick);
-          popup.addTo(map);
+          
+          //popup.addTo(map);
             
         </script>
    </body>
