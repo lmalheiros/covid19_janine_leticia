@@ -39,7 +39,7 @@
                     <tr>
                        <td style="vertical-align: center; horizontal-align: left; width: 140px;"><img style="width: 250px; height: 68px;" src="igot.png"></td>
                        <td style="vertical-align: center; font-family: Times New Roman; width: 493px;">
-                           <h2>BLOG WEB SIG DO COVID-19 EM PORTUGAL</h2></td>
+                           <h2>WEB SIG DO COVID-19 EM PORTUGAL</h2></td>
                        <td style="vertical-align: center; horizontal-align: right; width: 100px;"><img style="width: 250px; height: 68px;" src="nomes.png"></td>
                     </tr>
                 </tbody>
@@ -150,7 +150,7 @@
             function onMapClick(e) {
                     popup
                         .setLatLng(e.latlng)
-                        .setContent("You clicked the map at " + e.latlng.toString())
+                        .setContent("Clicaste em " + feature.properties.Concelho)
                         .openOn(map);
                 }
           map.on('click', onMapClick);
