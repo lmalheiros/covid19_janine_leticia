@@ -31,12 +31,13 @@
               margin-right: 8px;
               opacity: 0.7;
           }
+            
         </style>
              
-             <table style="text-align: center; width: 80%;" border="0" cellpadding="2" cellspacing="2">
+             <table style="text-align: center; width: 70%;" border="0" cellpadding="2" cellspacing="2">  
                 <tbody>
                     <tr>
-                       <td style="vertical-align: top; width: 365px;"><img style="width: 250px; height: 68px;" alt="IGOT" src="igot.png"></td>
+                       <td style="vertical-align: center; width: 365px;"><img style="width: 250px; height: 58px;" alt="IGOT" src="igot.png"></td>
                        <td style="vertical-align: top; font-family: Times New Roman; width: 493px;">
                            <h2>WEB SIG - CASOS DO COVID-19 EM PORTUGAL<br>
                            </h2>
@@ -74,12 +75,12 @@
         }
 
         function getColorMapa(value) {
-            return value > 1000 ? '#191970':
-                   value > 500  ? '#042f66':
-                   value > 250 ? '#483D8B':
-                   value > 75  ? '#4169E1':
-                   value > 15 ? '#1979a9':
-                                '#44bcd8';   
+            return value > 1000 ? '#00BFFF':
+                   value > 500  ? '#00CED1':
+                   value > 250 ? '#00FFFF':
+                   value > 75  ? '#40E0D0':
+                   value > 15 ? '#87CEFA':
+                                '#ADD8E6';   
         }
             
         function style(feature){
@@ -142,7 +143,7 @@
               var div = L.DomUtil.create('div', 'legend'),
                   grades = [0, 15, 75, 250, 500, 1000]; // The break values to define the intervals of confirmed cases
 
-              div.innerHTML = '<b>QUANTIDADE DE<br>CASOS CONFIRMADOS<br>POR 100.000 HABITANTES</b>'; 
+              div.innerHTML = '<b>QUANTIDADE DE<br>CASOS CONFIRMADOS<br>POR 100.000 HABITANTES<br></b>'; 
 
               // Loop through our the classes and generate a label with a colored square for each interval.
               // If you are creating a similar choropleth map, you do not need to change lines below.
