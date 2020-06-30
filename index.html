@@ -135,21 +135,21 @@
                    + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
         }).addTo(map);
 
-         var legend = L.control({position: 'bottomright'}); // Try the other three corners if you like.
+         var legend = L.control({position: 'bottomleft'}); // Try the other three corners if you like.
 
           legend.onAdd = function (map) {
 
               var div = L.DomUtil.create('div', 'legend'),
                   grades = [0, 15, 75, 250, 500, 1000]; // The break values to define the intervals of confirmed cases
 
-              div.innerHTML = '<b>CASOS CONFIRMADOS<br></b>'; 
+              div.innerHTML = '<b>QUANTIDADE DE<br>CASOS CONFIRMADOS<br>POR 100.000 HABITANTES</b>'; 
 
               // Loop through our the classes and generate a label with a colored square for each interval.
               // If you are creating a similar choropleth map, you do not need to change lines below.
               for (var i = 0; i < grades.length; i++) {
                   div.innerHTML +=
                   '<i style="background:' + getColorMapa(grades[i] + 1) + '"></i>' +
-                  grades[i] + (grades[i + 1] ? ' &ndash; ' + grades[i + 1] + '<br>' : '+');
+                  grades[i] + (grades[i + 1] ? ' &dot; ' + grades[i + 1] + '<br>' : '+');   // &ndash;
               }
 
               return div;
