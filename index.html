@@ -20,7 +20,7 @@
               line-height: 18px;
               background: rgba(255,255,255,0.9);
               box-shadow: 0 0 15px rgba(0,0,0,0.2);
-              border-radius: 5px;
+              border-radius: 4px;  /*era 5*/
           }
 
            /* Optional: adjust the values below to change the appearance of the legend color boxes */
@@ -36,14 +36,15 @@
     </head>
 
     <body>
-        <div id="map" style="height: 650px"></div>  
+        <div id="map" style="height: 630px"></div>  
 
         <script type="text/javascript">
-
+            
+            
           var map = L.map('map', {
               center: [38.761113, -9.160908],
-              zoom: 10 /*era 5*/
-          });
+              zoom: 6 /*era 5*/
+          }).setView([51.505, -0.09], 13);
 
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
@@ -69,6 +70,7 @@
                    value > 15 ? '#4682B4':
                                 '#B0C4DE';   
         }
+            
         function style(feature){
             return {
                 fillColor: getColorMapa(feature.properties.Confirmado),   // pop_den is the field name for the population density data
@@ -117,7 +119,7 @@
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
             return layer.feature.properties.Concelho 
-                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos por 10.000 hab. </p>';       
+                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
         }).addTo(map);
 
          var legend = L.control({position: 'bottomright'}); // Try the other three corners if you like.
