@@ -34,14 +34,14 @@
             
         </style>
              
-             <table style="text-align: center; width: 100%;" border="0" cellpadding="2" cellspacing="2">  
+             <table style="text-align: center; width: 100%;" border="0" cellpadding="2" cellspacing="0">  //era 2
                 <tbody>
                     <tr>
-                       <td style="vertical-align: center; horizontal-align: left; width: 100px;"><img style="width: 250px; height: 68px;" alt="IGOT" src="igot.png"></td>
+                       <td style="vertical-align: center; horizontal-align: left; width: 100px;"><img style="width: 250px; height: 68px;" src="igot.png"></td>
                        <td style="vertical-align: center; font-family: Times New Roman; width: 493px;">
                            <h2>WEB SIG - CASOS DO COVID-19 EM PORTUGAL<br>
                            </h2>
-                       <td style="vertical-align: center; horizontal-align: right; font-family: Times New Roman; width: 18px;">
+                       <td style="vertical-align: center; horizontal-align: right; font-family: Times New Roman; width: 18px; color: '#999'">
                            <h2>Janine Faria<br>Leticia Malheiros<br>
                            </h2>
                        </td>
@@ -50,7 +50,6 @@
             </table>       
 
     </head>
-
     <body>
         <div id="map" style="height: 560px"></div>  
 
@@ -89,7 +88,7 @@
         function style(feature){
             return {
                 fillColor: getColorMapa(feature.properties.Confirmado),   // pop_den is the field name for the population density data
-                weight: 1, /*era 2*/
+                weight: 1.5, /*era 2*/
                 opacity: 1,
                 color: 'darkgray',
                 fillOpacity: 0.9  /* era 0.9 */
