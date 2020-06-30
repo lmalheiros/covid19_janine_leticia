@@ -66,13 +66,13 @@
                    value > 500  ? '#483D8B':
                    value > 250 ? '#9e9ac8':
                    value > 75  ? '#836FFF':
-                   value > 15 ? '#4682B4'
+                   value > 15 ? '#4682B4':
                                 '#B0C4DE';   
         }
         function style(feature){
             return {
                 fillColor: getColor(feature.properties.Confirmado),   // pop_den is the field name for the population density data
-                weight: 2,
+                weight: 1, /*era 2*/
                 opacity: 1,
                 color: 'gray',
                 fillOpacity: 0.6  /* era 0.9 */
