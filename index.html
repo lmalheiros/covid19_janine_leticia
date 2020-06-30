@@ -43,8 +43,8 @@
             
           var map = L.map('map', {
               center: [38.761113, -9.160908],
-              zoom: 6 /*era 5*/
-          }).setView([51.505, -0.09], 13);
+              zoom: 6, zoomAnimation /*era 5*/
+          }).setView([38.761113, -9.160908], 10);  /*incluí depois*/
 
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
@@ -80,6 +80,8 @@
                 fillOpacity: 0.6  /* era 0.9 */
             }; 
         }
+            
+            
             
         function highlightFeature(e) {
             // Get access to the feature that was hovered through e.target
