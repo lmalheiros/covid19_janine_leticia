@@ -13,9 +13,10 @@
         crossorigin=""></script>
 
         <script type="text/javascript" src="dados.geojson"></script>
-        <script type="text/javascript" src="LocAtend.geojson"></script>
+    <style>
+      /* <script type="text/javascript" src="LocAtend.geojson"></script> */
                
-        <style>
+      /*  <style>*/
           /* Optional: adjust the values below to change the appearance of the legend */
           .legend {
               padding: 6px 8px;
@@ -147,7 +148,7 @@
             
           legend.addTo(map);      
          
-          var geojson2; //Mapa de Postos de Atendimento
+       /*   var geojson2; //Mapa de Postos de Atendimento
           
           geojson2 = L.geoJson(data, {
             style:style,
@@ -158,7 +159,11 @@
         }).addTo(map);
           var localAtend;
           
-          local_atend = L.marker(<LatLng> latlng, <Marker options> options?)
+          local_atend = L.marker(<LatLng> latlng, <Marker options> options?) */
+            
+         var overlay = new L.echartsLayer3(map, echarts);
+         var chartsContainer = overlay.getEchartsContainer();
+         var myChart = overlay.initECharts(chartsContainer);
            
         </script>
    </body>
