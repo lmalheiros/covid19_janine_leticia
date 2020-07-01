@@ -13,10 +13,9 @@
         crossorigin=""></script>
 
         <script type="text/javascript" src="dados.geojson"></script>
+    
     <style>
-      /* <script type="text/javascript" src="LocAtend.geojson"></script> */
-               
-      /*  <style>*/
+    
           /* Optional: adjust the values below to change the appearance of the legend */
           .legend {
               padding: 6px 8px;
@@ -77,7 +76,7 @@
             
         function style(feature){
             return {
-                fillColor: getColor(feature.properties.Confirmados),   
+                fillColor: getColor(feature.properties.Confirmado),   
                 weight: 1.5, /*era 2*/
                 opacity: 0.8,
                 color: 'darkgray',
@@ -148,22 +147,8 @@
             
           legend.addTo(map);      
          
-       /*   var geojson2; //Mapa de Postos de Atendimento
-          
-          geojson2 = L.geoJson(data, {
-            style:style,
-            onEachFeature: onEachFeature
-        }).bindTooltip(function (layer){
-            return layer.feature.properties.Concelho 
-                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
-        }).addTo(map);
-          var localAtend;
-          
-          local_atend = L.marker(<LatLng> latlng, <Marker options> options?) */
-            
-         var overlay = new L.echartsLayer3(map, echarts);
-         var chartsContainer = overlay.getEchartsContainer();
-         var myChart = overlay.initECharts(chartsContainer);
+        var painel;
+         
            
         </script>
    </body>
