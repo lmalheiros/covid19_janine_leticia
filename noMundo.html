@@ -64,11 +64,11 @@
          }).addTo(map);
 
         function getColor(value) {
-            return value > 2000 ? '#191970':
-                   value > 1000  ? '#483D8B':
-                   value > 800 ? '#6959CD':
-                   value > 400  ? '#836FFF':
-                   value > 100 ? '#B0C4DE':
+            return value > 1000 ? '#191970':
+                   value > 600  ? '#483D8B':
+                   value > 250 ? '#6959CD':
+                   value > 50 ? '#836FFF':
+                   value > 20 ? '#B0C4DE':
                                 '#E6E6FA';   
         }
             
@@ -128,7 +128,7 @@
           legend.onAdd = function (map) {
 
               var div = L.DomUtil.create('div', 'legend'),
-                  grades = [0, 100, 400, 800, 1000, 2000]; // The break values to define the intervals of confirmed cases
+                  grades = [0, 20, 50, 250, 600, 1000]; // The break values to define the intervals of confirmed cases
 
               div.innerHTML = '<b>QUANTIDADE DE<br>CASOS CONFIRMADOS<br>POR 100.000 HABITANTES<br></b>'; 
 
