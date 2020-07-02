@@ -12,7 +12,7 @@
         integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
         crossorigin=""></script>
 
-    <script type="text/javascript" src="dados.geojson"></script>  
+    <script type="text/javascript" src="peloMundo.geojson"></script>  
     
     <style>
     
@@ -119,8 +119,8 @@
             style:style,
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
-            return layer.feature.properties.Concelho 
-                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
+            return layer.feature.properties.Pais 
+                   + '<p style="color:darkblue">' + layer.feature.properties.Acum20.toString() + ' casos/100.000 hab. </p>';       
         }).addTo(map);
 
          var legend = L.control({position: 'bottomleft'}); // Try the other three corners if you like.
