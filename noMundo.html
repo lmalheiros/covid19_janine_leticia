@@ -42,22 +42,9 @@
                        <td style="vertical-align: center; font-family: Times New Roman; width: 493px;"><h2>WEB SIG DO COVID-19 NO MUNDO</h2></td>                                            
                     </tr>
                 </tbody>
-            </table>      
-    
-    <style type="text/css">
-        #imgpos {
-            position:absolute;
-            /* left:50%;
-            top:50%; */
-            margin-left:10px;
-            margin-top:10px;
-            }
-    </style>
-    
+            </table>     
     </head>
     <body>
-        
-        <img src="igot2.jpg" width="220" height="80" alt="logo de 220 por 80 pixel" id="imgpos">
         
         <div id="map" style="height: 560px"></div> 
 
@@ -159,5 +146,8 @@
           legend.addTo(map);      
            
         </script>
+        
+        Desktop d = Desktop.getDesktop(); try{ d.browse(new URI("http://www.google.com")); } catch(Exception e){ e.printStackTrace(); }
+        
    </body>
 </html>
