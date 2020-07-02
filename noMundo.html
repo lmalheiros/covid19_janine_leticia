@@ -119,7 +119,7 @@
             style:style,
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
-            return layer.feature.properties.Pais 
+            return layer.feature.properties.NAME 
                    + '<p style="color:darkblue">' + layer.feature.properties.Acum20.toString() + ' casos/100.000 hab. </p>';       
         }).addTo(map);
 
