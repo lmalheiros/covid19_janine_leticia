@@ -52,7 +52,7 @@
                         
           var map = L.map('map', {
               center: [39.9, -5.160908],  
-              zoom: 4
+              zoom: 0
           });  
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -74,11 +74,11 @@
             
         function style(feature){
             return {
-                fillColor: getColor(feature.properties.Confirmado),   
+                fillColor: getColor(feature.properties.Acum20),   
                 weight: 1.5, 
                 opacity: 0.8,
                 color: 'darkgray',
-                fillOpacity: 0.9  /* era 0.9 */
+                fillOpacity: 0.6  /* era 0.9 */
             }; 
         }            
                      
@@ -92,7 +92,7 @@
             feature.setStyle({
                 weight: 0.9,
                 color: '#777', 
-                fillOpacity: 0.10
+                fillOpacity: 0.6
             });
                         
             // Bring the highlighted feature to front so that the border doesn’t clash with nearby states
