@@ -143,14 +143,18 @@
           legend.addTo(map);           
           /* 
             Adiciona o gráfico ao mapa
-          */        
-          var graf = L.control({position: 'topright'}); 
+          */ 
+          var imageUrl = "Gráfico.png"; 
+          bounds = thetrail.getBounds();
+          imageBounds = [[62.5, bounds._southWest.lng], [bounds._northEast.lat, bounds._northEast.lng]];
+          L.imageOverlay(imageUrl, imageBounds).addTo(map);
+          /*var graf = L.control({position: 'topright'}); 
           graf.onAdd = function (map) {
               var div2 = L.DomUtil.create('div2', 'graf'); 
               div2.innerHTML = '<a IMG SRC="Gráfico.png"></a>';                   
               return div2;
            };             
-          graf.addTo(map);             
+          graf.addTo(map); */            
         </script>         
    </body>
 </html>
