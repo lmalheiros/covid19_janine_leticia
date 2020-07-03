@@ -146,12 +146,13 @@
           var imageBounds = [[41.75, -4.69], [39, 1.50]];
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           L.imageOverlay(imageUrl, imageBounds).bringToFront();
-            
+          /*
+          Popup para o link do mundo
+          */
           var mundo = L.marker([41.75, -4.69], 
                 {title: 'Mundo'});
-            mundo.bindPopup(<a href="noMundo.html">COVID-19 NO MUNDO</a>);
-            mundo.addTo(map);  
-            
+            mundo.bindPopup('Veja todos os países através do link COVID-19 NO MUNDO, lá em cima!');
+            mundo.addTo(map);              
        </script>         
    </body>
 </html>
