@@ -145,8 +145,8 @@
             Adiciona o gráfico ao mapa
           */ 
           var imageUrl = "Gráfico.png"; 
-          bounds = geojson.getBounds();
-          imageBounds = topright;
+          bounds = geojson.get.topgright();   //Bounds();
+          imageBounds = ([10, 10], bounds);
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           /*var graf = L.control({position: 'topright'}); 
           graf.onAdd = function (map) {
