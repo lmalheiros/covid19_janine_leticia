@@ -146,6 +146,11 @@
           var imageBounds = [[41.75, -4.69], [39, 1.50]];
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           L.imageOverlay(imageUrl, imageBounds).bringToFront();
+            
+          var mundo = L.marker([41.75, 39], .
+                {title: 'Mundo'});
+            mundo.bindPopup("Casos pelo Mundo");
+            nundo.addTo(map);
         </script>         
    </body>
 </html>
