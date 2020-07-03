@@ -114,7 +114,7 @@
             onEachFeature: onEachFeature
         }).bindTooltip(function (layer){
             return layer.feature.properties.NAME 
-                   + '<p style="color:darkblue">' + layer.feature.properties.Acum20.toFixed(0) + ' casos/100.000 hab. </p>';       
+                   + '<p style="color:darkblue">' + layer.feature.properties.Acum20.toString(0) + ' casos/100.000 hab. </p>';       
         }).addTo(map);
         /*
           Constrói e coloca a legenda no mapa
