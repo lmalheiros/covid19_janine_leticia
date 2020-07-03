@@ -143,15 +143,15 @@
             Adiciona o gráfico ao mapa
           */ 
           var imageUrl = "Gráfico.png"; 
-          var imageBounds = [[41.50, -4.69], [39, 1.50]];
+          var imageBounds = [[41.25, -4.69], [38.70, 1.50]];
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           L.imageOverlay(imageUrl, imageBounds).bringToFront();
           /*
           Popup para o link do mundo
           */
-          var mundo = L.marker([41.50, -4.69], 
+          var mundo = L.marker([41.25, -4.69], 
                 {title: 'Mundo'});
-            mundo.bindPopup('<p>Veja todos os países através do<br>link COVID-19 NO MUNDO, lá em cima!</p>');
+            mundo.bindPopup('Veja todos os países através do link<br>COVID-19 NO MUNDO, lá em cima!');
             mundo.addTo(map);              
        </script>         
    </body>
