@@ -4,19 +4,19 @@
         <title>COVID-19 Portugal</title>
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin=""/>
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="crossorigin=""/>
 
-    </style>
-        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-        crossorigin=""></script>
-
-    <script type="text/javascript" src="dados.geojson"></script>  
+        </style>
+            <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+                integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="crossorigin="">
+            </script>
+    
+        <script type="text/javascript" src="dados.geojson"></script>  
     
     <style>
-    
-          /* Optional: adjust the values below to change the appearance of the legend */
+          /*
+            Optional: adjust the values below to change the appearance of the legend
+          */
           .legend {
               padding: 6px 8px;
               line-height: 18px;
@@ -24,8 +24,9 @@
               box-shadow: 0 0 15px rgba(0,0,0,0.2);
               border-radius: 5px;  
           }
-
-           /* Optional: adjust the values below to change the appearance of the legend color boxes */
+           /* 
+             Optional: adjust the values below to change the appearance of the legend color boxes
+           */
            .legend i {
               width: 18px;
               height: 18px;
@@ -33,7 +34,9 @@
               margin-right: 8px;
               opacity: 0.9;
           }
-                                 
+        /*
+          Construção do Cabeçalho do WEB SIG
+        */
         </style>                    
              <table style="text-align: center; width: 100%;background-color: #778899;" border="0" cellpadding="0" cellspacing="0"> 
                 <tbody>
@@ -45,16 +48,16 @@
                 </tbody>
             </table>       
     </head>
+
     <body>
-        
         <div id="map" style="height: 560px"></div> 
 
-        <script type="text/javascript">
-                        
+        <script type="text/javascript">    
+            
           var map = L.map('map', {
               center: [39.9, -5.160908],  
               zoom: 7
-          });  
+          });    
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
@@ -63,92 +66,91 @@
            id: 'mapbox.dark', 
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
          }).addTo(map);
-
+        /*
+          Função de definiação de cores que serão utilizadas para classificação por quantidd de casos no mapa e legenda
+        */
         function getColor(value) {
             return value > 1000 ? '#191970':
                    value > 500  ? '#483D8B':
                    value > 250 ? '#6959CD':
                    value > 75  ? '#836FFF':
                    value > 15 ? '#B0C4DE':
-                                '#E6E6FA';   
-        }
-            
+                                '#E6E6FA';}
+        /*
+          Função de definiação de estilo de cores que será utilizado na legenda
+        */    
         function style(feature){
             return {
                 fillColor: getColor(feature.properties.Confirmado),   
-                weight: 1.5, /*era 2*/
+                weight: 1.5,
                 opacity: 0.8,
                 color: 'darkgray',
-                fillOpacity: 0.9  /* era 0.9 */
-            }; 
-        }            
-                     
-        function highlightFeature(e) {
-            // Get access to the feature that was hovered through e.target
+                fillOpacity: 0.9 }; }            
+        /*
+          Função que irá dar destaque aos concelhos conforme o cursor do rato passe or cima
+        */
+        function highlightFeature(e) {           
             var feature = e.target;
-
-            // Set a thick grey border on the feature when as mouseover effect
-            // Adjust the values below to change the highlighting styles of features on mouseover
-            // Check out https://leafletjs.com/reference-1.3.4.html#path for more options for changing style
-            feature.setStyle({
+            feature.setStyle({   // Destaca a borda com a cor cinza, mudando o destaque conforme o movimento do rato
                 weight: 0.9,
                 color: '#777',
                 fillOpacity: 0.99
-            });
-                        
-            // Bring the highlighted feature to front so that the border doesn’t clash with nearby states
-            // But not for IE, Opera or Edge, since they have problems doing bringToFront on mouseover
-            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-                feature.bringToFront();
-            }
-        }
-                   
-        var geojson; // define a variable to make the geojson layer accessible for the funtion to use   
-            
-        function resetHighlight(e) {
-            geojson.resetStyle(e.target);
-        }
-            
-        function onEachFeature(feature, layer) {
-            layer.on({
-                mouseover: highlightFeature, // Do what defined by the highlightFeature function on mouseover
-                mouseout: resetHighlight,    // Do what defined by the resetHighlight function on mouseout
-            });
-        }            
-         
-        geojson = L.geoJson(data, {
-            style:style,
-            onEachFeature: onEachFeature
-        }).bindTooltip(function (layer){
-            return layer.feature.properties.Concelho 
-                   + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
-        }).addTo(map);
+            });                        
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {  // Traz o concelho em destaque para frente para garantir que não se confunda com os vizinhos que não estão em destaque
+                feature.bringToFront();}}
 
-         var legend = L.control({position: 'bottomleft'}); // Try the other three corners if you like.
-
-          legend.onAdd = function (map) {
-
-              var div = L.DomUtil.create('div', 'legend'),
-                  grades = [0, 15, 75, 250, 500, 1000]; // The break values to define the intervals of confirmed cases
-
-              div.innerHTML = '<b>QUANTIDADE DE<br>CASOS CONFIRMADOS<br>POR 100.000 HABITANTES<br></b>'; 
-
-              // Loop through our the classes and generate a label with a colored square for each interval.
-              // If you are creating a similar choropleth map, you do not need to change lines below.
+            var geojson; // Define a variável geojson
+            /*
+              Função que faz o destaque dos concelhos
+            */
+            function resetHighlight(e) {
+                geojson.resetStyle(e.target);}
+            /*
+              Função que efetua o destaque dos concelhos conforme o movimento do rato
+            */
+            function onEachFeature(feature, layer) {
+                layer.on({
+                    mouseover: highlightFeature, // Destaca onde está o rato
+                    mouseout: resetHighlight,  }); }   // Desfaz ao destaque conforme o ponteiro do rato passe para outro concelho        
+            /*
+              Carrefa os dados para o mapa e, ao final, inclui o mapa no site
+            */
+            geojson = L.geoJson(data, {
+                style:style,
+                onEachFeature: onEachFeature
+            }).bindTooltip(function (layer){
+                return layer.feature.properties.Concelho 
+                       + '<p style="color:darkblue">' + layer.feature.properties.Confirmado.toString() + ' casos/10.000 hab. </p>';       
+            }).addTo(map);
+            /*
+              Constrói e coloca a legenda no mapa
+            */
+             var legend = L.control({position: 'bottomleft'}); // posiciona a legenda na parte inferior direita
+              legend.onAdd = function (map) {
+                  var div = L.DomUtil.create('div', 'legend'),
+                      grades = [0, 15, 75, 250, 500, 1000]; // define os intervalos de casos e possibilita as classificações por cores
+                  div.innerHTML = '<b>QUANTIDADE DE<br>CASOS CONFIRMADOS<br>POR 100.000 HABITANTES<br></b>'; 
+              /* 
+                O loop (comando for) constrói o a legenda com as mesmas cores definidas para as faixas de casos
+              */             
               for (var i = 0; i < grades.length; i++) {
                   div.innerHTML +=
                   '<i style="background:' + getColor(grades[i] + 1) + '"></i>' +
                   grades[i] + (grades[i + 1] ? ' &ndash; ' + grades[i + 1] + '<br>' : '+');  
-              }
-              
+              }              
               return div;
-           }; 
-            
-          legend.addTo(map);      
-           
-        </script>
-        <script>
-              <CENTER><IMG SRC="equilibri.gif" ALIGN="BOTTOM"> </CENTER>
-        </script>    
+           };             
+          legend.addTo(map);           
+          /* 
+            Adiciona o gráfico ao mapa
+          */        
+          var graf = L.control({position: 'topright'}); 
+          graf.onAdd = function (map) {
+              var div2 = L.DomUtil.create('div2', 'graf'); 
+              div.innerHTML = <a href="noMundo.html">COVID-19 MO MUNDO</a>;                   
+              return div2;
+           };             
+          graf.addTo(map);             
+        </script>         
    </body>
 </html>
