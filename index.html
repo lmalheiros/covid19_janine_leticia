@@ -56,7 +56,7 @@
             
           var map = L.map('map', {
               center: [39.9, -5.160908],  
-              zoom: 7.5
+              zoom: 6
           });    
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -150,10 +150,9 @@
           Popup para o link do mundo
           */
           var icone = L.icon({
-            iconUrl: 'mundo.png', iconSize: [30, 30]}, 
-               {attribution: '<a href="noMundo.html"></a>'});
+            iconUrl: 'mundo.png', iconSize: [30, 30] } );
           var mundo = L.marker([41.25, -4.69], {icon: icone}, {title: 'COVID-19 no Mundo'} ); 
-            mundo.bindPopup('Veja todos os países através do link<br>COVID-19 NO MUNDO, lá em cima!');
+            mundo.bindPopup('<a href="noMundo.html"></a>''Veja todos os países através do link<br>COVID-19 NO MUNDO, lá em cima!');
             mundo.addTo(map);              
        </script>         
    </body>
