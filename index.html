@@ -56,13 +56,13 @@
             
           var map = L.map('map', {
               center: [39.9, -5.160908],  
-              zoom: 6.5
+              zoom: 7.5
           });    
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
-           maxZoom: 20, /* era 11 */
-           minZoom: 4, /* eraa 5 */
+           maxZoom: 20,
+           minZoom: 4, 
            id: 'mapbox.dark', 
            accessToken: 'pk.eyJ1IjoiY3VyZW1hbmdvIiwiYSI6ImNpcTQ4cGFwbDAxbmVmd25vZGNiOTVzeGEifQ.GWZByYkIft6eMRha69C8nw'
          }).addTo(map);
@@ -150,9 +150,9 @@
           Popup para o link do mundo
           */
           var icone = L.icon({
-            iconUrl: 'mundo.png', iconSize: [30, 30] });
-          var mundo = L.marker([41.25, -4.69], {icon: icone}, {title: 'COVID-19 no Mundo'}, 
-               {attribution: '<a href="noMundo.html"></a>'} ); 
+            iconUrl: 'mundo.png', iconSize: [30, 30]}, 
+               {attribution: '<a href="noMundo.html"></a>'});
+          var mundo = L.marker([41.25, -4.69], {icon: icone}, {title: 'COVID-19 no Mundo'} ); 
             mundo.bindPopup('Veja todos os países através do link<br>COVID-19 NO MUNDO, lá em cima!');
             mundo.addTo(map);              
        </script>         
