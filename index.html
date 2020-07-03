@@ -142,9 +142,10 @@
           /* 
             Adiciona o gráfico ao mapa
           */ 
-          var imageUrl = <a href="noMundo.html">COVID-19 NO MUNDO</a> "Gráfico.png"; 
+          var imageUrl = "Gráfico.png"; 
           var imageBounds = [[41.75, -4.69], [39, 1.50]];
-          L.imageOverlay(imageUrl,imageBounds).addTo(map);                     
+          L.imageOverlay(imageUrl, imageBounds, interactive: true).addTo(map);
+          L.imageOverlay(imageUrl, imageBounds).bringToFront;
         </script>         
    </body>
 </html>
