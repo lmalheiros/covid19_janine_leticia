@@ -56,7 +56,7 @@
             
           var map = L.map('map', {
               center: [39.9, -5.160908],  
-              zoom: 7
+              zoom: 6.5
           });    
             
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -143,14 +143,14 @@
             Adiciona o gráfico ao mapa
           */ 
           var imageUrl = "Gráfico.png"; 
-          var imageBounds = [[41.25, -4.69], [38.70, 1.50]];
+          var imageBounds = [[41.25, -4.69], [38.40, 1.50]];
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           L.imageOverlay(imageUrl, imageBounds).bringToFront();
           /*
           Popup para o link do mundo
           */
           var mundo = L.marker([41.25, -4.69], 
-                {title: 'Mundo'});
+                {title: 'Mundo'}, {icon: 'mundo.png'}); 
             mundo.bindPopup('Veja todos os países através do link<br>COVID-19 NO MUNDO, lá em cima!');
             mundo.addTo(map);              
        </script>         
