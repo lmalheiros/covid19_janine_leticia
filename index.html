@@ -145,7 +145,7 @@
             Adiciona o gráfico ao mapa
           */ 
           var imageUrl = "Gráfico.png"; 
-          bounds = thetrail.getBounds();
+          bounds = geojson.getBounds();
           imageBounds = topright;
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           /*var graf = L.control({position: 'topright'}); 
