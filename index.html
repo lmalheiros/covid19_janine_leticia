@@ -149,8 +149,11 @@
           /*
           Popup para o link do mundo
           */
+          var icone = L.icon({
+            iconUrl: 'mundo.png',
+            iconSize: [38, 95] });
           var mundo = L.marker([41.25, -4.69], 
-                {title: 'Mundo'}, {icon: 'mundo.png'}); 
+                {title: 'Mundo'}, {icon: icone}); 
             mundo.bindPopup('Veja todos os países através do link<br>COVID-19 NO MUNDO, lá em cima!');
             mundo.addTo(map);              
        </script>         
