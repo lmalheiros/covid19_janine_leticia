@@ -146,7 +146,7 @@
           */ 
           var imageUrl = "Gráfico.png"; 
           bounds = thetrail.getBounds();
-          imageBounds = [[62.5, bounds._southWest.lng], [bounds._northEast.lat, bounds._northEast.lng]];
+          imageBounds = topright;
           L.imageOverlay(imageUrl, imageBounds).addTo(map);
           /*var graf = L.control({position: 'topright'}); 
           graf.onAdd = function (map) {
