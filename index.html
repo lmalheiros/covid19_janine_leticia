@@ -136,24 +136,15 @@
               for (var i = 0; i < grades.length; i++) {
                   div.innerHTML +=
                   '<i style="background:' + getColor(grades[i] + 1) + '"></i>' +
-                  grades[i] + (grades[i + 1] ? ' &ndash; ' + grades[i + 1] + '<br>' : '+');  
-              }              
-              return div;
-           };             
+                  grades[i] + (grades[i + 1] ? ' &ndash; ' + grades[i + 1] + '<br>' : '+'); }              
+              return div; };             
           legend.addTo(map);           
           /* 
             Adiciona o gráfico ao mapa
           */ 
           var imageUrl = "Gráfico.png"; 
           var imageBounds = [[41.75, -4.69], [39, 1.50]];
-          L.imageOverlay(imageUrl,imageBounds).addTo(map);
-          /*var graf = L.control({position: 'topright'}); 
-          graf.onAdd = function (map) {
-              var div2 = L.DomUtil.create('div2', 'graf'); 
-              div2.innerHTML = '<a IMG SRC="Gráfico.png"></a>';                   
-              return div2;
-           };             
-          graf.addTo(map); */            
+          L.imageOverlay(imageUrl,imageBounds).addTo(map);                     
         </script>         
    </body>
 </html>
