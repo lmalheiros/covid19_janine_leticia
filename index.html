@@ -95,9 +95,7 @@
                 fillOpacity: 0.99
             });                        
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {  // Traz o concelho em destaque para frente para garantir que não se confunda com os vizinhos que não estão em destaque
-                feature.bringToFront();}}
-
-            var geojson; // Define a variável geojson
+                feature.bringToFront();}}            
             /*
               Função que faz o destaque dos concelhos
             */
@@ -113,6 +111,7 @@
             /*
               Carrefa os dados para o mapa e, ao final, inclui o mapa no site
             */
+            var geojson; // Define a variável geojson
             geojson = L.geoJson(data, {
                 style:style,
                 onEachFeature: onEachFeature
