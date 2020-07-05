@@ -75,7 +75,7 @@
                    value > 15 ? '#B0C4DE':
                                 '#E6E6FA';}
         /*
-          Função de definiação de estilo de cores que será utilizado na legenda
+          Função de definiação de estilo de cores do tema
         */    
         function style(feature){
             return {
@@ -94,7 +94,7 @@
                 color: '#777',
                 fillOpacity: 0.99
             });                        
-            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {  // Traz o concelho em destaque para frente para garantir que não se confunda com os vizinhos que não estão em destaque
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {  // tratamento para os diferentes browsers - garantir que fique correta a imagem
                 feature.bringToFront();}}            
             /*
               Função que faz o destaque dos concelhos
@@ -108,10 +108,11 @@
                 layer.on({
                     mouseover: highlightFeature, // Destaca onde está o rato
                     mouseout: resetHighlight,  }); }   // Desfaz ao destaque conforme o ponteiro do rato passe para outro concelho        
-            /*
-              Carrefa os dados para o mapa e, ao final, inclui o mapa no site
-            */
+            
             var geojson; // Define a variável geojson
+            /*
+              Essa função cria o toolTip com a quantidade de confirmados no concelho onde o rato estiver a passar.
+            */
             geojson = L.geoJson(data, {
                 style:style,
                 onEachFeature: onEachFeature
