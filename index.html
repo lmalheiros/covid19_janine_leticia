@@ -51,12 +51,16 @@
         <div id="map" style="height: 560px"></div>
 
         <script type="text/javascript">    
-            
+          /* 
+           Cria a variável map com as coordenadas do centro do mapa e o zoom que será apresetado inicialmente na tela
+          */
           var map = L.map('map', {
               center: [39.8, -5.160908],  
               zoom: 6.7
           });    
-            
+         /* 
+          Layer com o mapa base - foi utilizado o API do Open Street Maps
+         */   
          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
            attribution: 'Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox',
            maxZoom: 20,
